@@ -1,0 +1,23 @@
+name: Maven Build
+
+on:
+  push:
+    workflow_dispatch:
+  release:
+    types: [created]
+    
+jobs:
+  build:
+    runs-on: Ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Set up JDK and Maven
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'adopt'
+        java-version: '11'
+
+    - name: Build and test with Maven
+      run: mvn version
