@@ -24,6 +24,7 @@ jobs:
 
     - name: Build and test with Maven
       run: |
+        ls -lart /etc/ssl/certs/ca*
         whoami
         sudo apt update
         sudo apt install maven
