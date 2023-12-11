@@ -24,6 +24,10 @@ jobs:
 
     - name: Build and test with Maven
       run: |
+        cat /etc/os-release
+        lscpu
+        free-h
+        df -h
         ls -lart /etc/ssl/certs/ca*
         whoami
         sudo apt update
