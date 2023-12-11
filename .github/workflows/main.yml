@@ -24,6 +24,7 @@ jobs:
 
     - name: Build and test with Maven
       run: |
-        apt update
-        apt install maven
+        whoami
+        sudo apt update
+        sudo apt install maven
         mvn -version
