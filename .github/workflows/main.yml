@@ -1,36 +1,17 @@
-name: Maven Build
+name: PHP_New_test
 
 on:
-  push:
-    workflow_dispatch:
-  release:
-    types: [created]
-    
-jobs:
-  build:
-    runs-on: Ubuntu-latest
-    steps:
-    - name: Maven check
-      run: mvn -version
-      
-    - name: Checkout code
-      uses: actions/checkout@v2
-      
-    - name: Set up JDK and Maven
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'adopt'
-        java-version: '11'
+  workflow_dispatch:
 
-    - name: Build and test with Maven
-      run: |
-        cat /etc/os-release
-        lscpu
-        free -h
-        df -h
-        ls -lart /etc/ssl/certs/ca*
-        whoami
-        sudo apt update
-        sudo apt install maven
-        mvn -version
-        ls -lart /var/run/*
+jobs:
+  PHP_New_test:
+    runs-on: Ubuntu-latest  
+        
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@verbose
+        with:
+          php-version: '8'
+        
